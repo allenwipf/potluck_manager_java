@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
+
+    <title th:text="'Potluck | ' + ${potluck.title}">Potluck Manager</title>
+    <link rel="stylesheet" th:href="@{/app.css}" />
+
+</head>
+
+<body class="container">
+<header>
+    <nav>
+        <div class="nav-wrapper grey">
+            <a href="#" class="brand-logo">Potluck Manager</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/users">Users</a></li>
+                <li><a href="#">My Potlucks</a></li>
+                <li><a href="/">Blah </a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="row potluck_view_container">
+        <form class="col s12" action="#" th:action="@{/potlucks}" th:object="${potluck}" method="post">
+            <div class="row">
+                <div class="input-field col s6 center-align">
+                    <input th:field="*{name}" id="name" type="text" class="validate"/>
+                    <label class="active" for="name">Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input th:field="*{email}" id="email" type="text" class="validate"/>
+                    <label class="active" for="email">Location</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input th:field="*{password}" id="password" type="text" class="validate"/>
+                    <label class="active" for="password">Description</label>
+                </div>
+            </div>
+            <p><input type="submit" class="waves-effect waves-light btn" value="Submit" /></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

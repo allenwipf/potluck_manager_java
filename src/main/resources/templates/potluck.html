@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
+
+    <title th:text="'Potluck | ' + ${potluck.title}">Potluck Manager</title>
+    <link rel="stylesheet" th:href="@{/app.css}" />
+
+</head>
+
+<body class="container">
+
+    <header>
+        <nav>
+            <div class="nav-wrapper grey">
+                <a href="#" class="brand-logo">Potluck Manager</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">My Potlucks</a></li>
+                    <li><a href="/">Blah </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row potluck_view_container">
+            <form class="col s12" action="/" th:action="@{/}" th:object="${potluck}" method="post">
+                <div class="row">
+                    <div class="input-field col s6 center-align">
+                        <input th:value="${potluck.title}" id="title" type="text" class="validate"/>
+                        <label class="active" for="title">Title</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input th:value="${potluck.location}" id="location" type="text" class="validate"/>
+                        <label class="active" for="location">Location</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input th:value="${potluck.description}" id="description" type="text" class="validate"/>
+                        <label class="active" for="description">description</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input th:value="${potluck.party_size}" id="party_size" type="number" class="validate"/>
+                        <label class="active" for="description">party size</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input th:value="${potluck.pId}" id="pId" type="number" class="validate"/>
+                        <label class="active" for="description">Potluck ID</label>
+                    </div>
+                </div>
+
+                <p><input type="submit" class="waves-effect waves-light btn" value="Submit" /></p>
+            </form>
+        </div>
+    </div>
+
+    <h1 th:text="'Potluck Name is: ' + ${potluck.title}"></h1>
+    <h3 th:text="'Potluck Location is: ' + ${potluck.location}"></h3>
+    <h3 th:text="'Potluck Description is: ' + ${potluck.description}"></h3>
+    <h3 th:text="'Potluck is Party Size: ' + ${potluck.party_size}"></h3>
+    <h3 th:text="'Potluck ID is: ' + ${potluck.pId}"></h3>
+
+
+    <!--<p th:text="'Item Name: ' + ${item.name}"></p>-->
+    <!--<p th:text="'Item category: ' + ${item.category}"></p>-->
+    <!--<p th:text="'Item Amount: ' + ${item.amount}"></p>-->
+    <!--<p th:text="'Item Claimed By: ' + ${item.claimed_by}"></p>-->
+    <!--<p th:text="'Item Potluck Id: ' + ${item.potluck_id}"></p>-->
+
+</body>
+</html>

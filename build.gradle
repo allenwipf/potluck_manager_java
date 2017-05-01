@@ -1,0 +1,44 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'gs-handling-form-submission'
+	version =  '0.1.0'
+}
+
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	compile group: 'org.webjars', name: 'bootstrap', version: '3.3.7-1'
+	// https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+	compile group: 'com.zaxxer', name: 'HikariCP', version: '2.6.1'
+	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+	// https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+	compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.5.RELEASE'
+
+}
+
